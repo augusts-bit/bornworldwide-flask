@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index of bornworldwide</title>
+
+    <style>
+    .myDiv {
+        height: 200px;
+        width: 400px;
+
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -300px;
+
+        white-space: pre;
+        }
+        .myDiv2 {
+        height: 200px;
+        width: 400px;
+
+        position: fixed;
+        top: 90%;
+        left: 22%;
+        margin-top: -100px;
+        margin-left: -300px;
+
+        white-space: pre;
+        }
+        .myDiv3 {
+        height: 200px;
+        width: 400px;
+
+        position: fixed;
+        top: 100%;
+        left: 22%;
+        margin-top: -100px;
+        margin-left: -300px;
+
+        white-space: pre;
+        }
+
+        /* Set height of html and body to 100% */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Set height of map container to 100% */
+        #wrapper {
+            position: relative;
+            height: 100%;
+        }
+
+        #wrapper:before, #wrapper:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 45%; /* Height of the effect (adjust as needed) */
+        }
+
+        #wrapper:before {
+            top: 0;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        }
+
+        #wrapper:after {
+            bottom: 0;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        }
+
+        /* Set height of map container to 100% */
+        #map {
+            height: 100%;
+            position: relative;
+            opacity: 0.99; /* Adjust the opacity value as needed (0 is fully transparent, 1 is fully opaque)
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+        <!--<div id="map">-->
+        <!--</div>-->
+
+        <div id="wrapper">
+        <!-- Add overlay divs for upper and lower 1/3 -->
+        <div id="map"></div>
+        </div>
+
+
+    <script>
+        // Get the values of coord_x and coord_y from Flask variables
+        var coord_x = {{ coord_x }};
+        var coord_y = {{ coord_y }} - 0.1; // shift south a bit for better display
+
+        // Initialize Leaflet map with the specified coordinates
+        var map = L.map('map').setView([coord_x, coord_y], {{ zoom_lvl }});
+
+        // Add a tile layer (you may want to change the URL to an appropriate tile provider)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+    </script>
+
+    <!--<div class="myDiv"><font size="+6"><p>You have been born in ... </p></font></div>-->
+    <!--<div class="myDiv2"><font size="+8"><p>{{ variable }}!</p></font></div>-->
+    <div class="myDiv2"><font size="+6"><p>You have been born in {{ variable }}! </p></font></div>
+    <div class="myDiv3"><font size="+3"><p>You are the <u>1 in {{ data }}</u> that will be born here!</p></font></div>
+
+</body>
+</html>

@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Index of bornworldwide</title>
 
     <style>
+
     .myDiv {
+        /*height: 200px;*/
+        /*width: 400px;*/
         height: 200px;
         width: 400px;
 
@@ -17,17 +22,19 @@
 
         white-space: pre;
         }
+
         .myDiv2 {
         height: 200px;
         width: 400px;
 
         position: fixed;
         top: 90%;
-        left: 22%;
+        left: 50%;
         margin-top: -100px;
         margin-left: -300px;
 
         white-space: pre;
+
         }
         .myDiv3 {
         height: 200px;
@@ -35,7 +42,20 @@
 
         position: fixed;
         top: 100%;
-        left: 22%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -300px;
+
+        white-space: pre;
+        }
+
+        .myDiv4 {
+        height: 200px;
+        width: 400px;
+
+        position: fixed;
+        top: 25%;
+        left: 18%;
         margin-top: -100px;
         margin-left: -300px;
 
@@ -45,6 +65,7 @@
         /* Set height of html and body to 100% */
         html, body {
             height: 100%;
+            width: 100vw;
             margin: 0;
         }
 
@@ -84,6 +105,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -111,10 +136,20 @@
 
     </script>
 
+    <!--<p><center> You have been born in {{ variable }}! </center></p>-->
+
     <!--<div class="myDiv"><font size="+6"><p>You have been born in ... </p></font></div>-->
     <!--<div class="myDiv2"><font size="+8"><p>{{ variable }}!</p></font></div>-->
-    <div class="myDiv2"><font size="+6"><p>You have been born in {{ variable }}! </p></font></div>
-    <div class="myDiv3"><font size="+3"><p>You are the <u>1 in {{ data }}</u> that will be born here!</p></font></div>
+    <div class="myDiv2"><font size="+3"><p><center>You have been born in {{ variable }}! </center></p></font></div>
+    <div class="myDiv3"><font size="+2"><p>You are the <u>1 in {{ data }}</u> that will be born here!<button type="button" class="btn btn-default btn-sm" onclick="location.reload()">
+          <span class="glyphicon glyphicon-refresh"></span>
+        </button></p></font></div>
+
+    <!--<div class="myDiv4"><p>-->
+    <!--    <button type="button" class="btn btn-default btn-sm" onclick="location.reload()">-->
+    <!--      <span class="glyphicon glyphicon-refresh"></span> Refresh!-->
+    <!--    </button>-->
+    <!--  </p></div>-->
 
 </body>
 </html>
